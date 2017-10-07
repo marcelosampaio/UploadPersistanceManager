@@ -62,7 +62,7 @@ class PersistanceManager {
         return documentsFolder()
     }
     
-    // MARK: - Instance Photos Methods
+    // MARK: - Instance Methods
     public func addFile(data: Data, type: fileType) -> Bool {
         
         if data.isEmpty {
