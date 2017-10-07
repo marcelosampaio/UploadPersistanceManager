@@ -17,14 +17,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        PersistanceManager.standard.commonString = ""
+
+
         let persistanceManager = PersistanceManager.standard
-        
+
         print("👉 Application Folder: \(persistanceManager.getApplicationFolder())")
+        print("👉 Documents Folder: \(persistanceManager.getDocumentsFolder())")
         
+        // create sile system structures
+        persistanceManager.createFolderStructure()
         
         
     }
