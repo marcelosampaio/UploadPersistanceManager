@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         // create sile system structures
         persistanceManager.createFolderStructure()
         
+        let photo = Data()
+        _ = persistanceManager.addPhoto(photo)
+        
         
     }
 

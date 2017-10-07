@@ -25,6 +25,14 @@ class PersistanceManager {
     
     // MARK: - Instance Helpers
     public func createFolderStructure() {
+        // ------------------
+        // Documents Folder
+        //      - Midias
+        //          - Audios
+        //          - Misc
+        //          - Photos
+        //          - Videos
+        // ------------------
 
         let midiasPath = documentsFolder() + midiaFolder
         createFolderAtPath(midiasPath)
@@ -47,6 +55,15 @@ class PersistanceManager {
         return documentsFolder()
     }
     
+    // MARK: - Instance Methods
+    public func addPhoto(_ data: Data) -> Bool {
+        if data.isEmpty {
+            print("👎 photo is empty ❌")
+            return false
+        }
+        print("👍 addFile has been called")
+        return true
+    }
     
     
     // MARK: - Private Helpers
@@ -66,6 +83,9 @@ class PersistanceManager {
         }
 
     }
+    
+    
+    
     
     
 }
