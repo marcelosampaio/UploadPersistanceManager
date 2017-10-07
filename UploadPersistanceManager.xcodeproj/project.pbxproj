@@ -12,6 +12,8 @@
 		824DAAA11F886A520089E217 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824DAA9F1F886A520089E217 /* Main.storyboard */; };
 		824DAAA31F886A520089E217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824DAAA21F886A520089E217 /* Assets.xcassets */; };
 		824DAAA61F886A520089E217 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824DAAA41F886A520089E217 /* LaunchScreen.storyboard */; };
+		824DAABD1F8905020089E217 /* MainSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DAABC1F8905020089E217 /* MainSingleton.swift */; };
+		824DAABF1F8905260089E217 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DAABE1F8905260089E217 /* PersistanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		824DAAA21F886A520089E217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		824DAAA51F886A520089E217 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		824DAAA71F886A520089E217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		824DAABC1F8905020089E217 /* MainSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSingleton.swift; sourceTree = "<group>"; };
+		824DAABE1F8905260089E217 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +58,13 @@
 		824DAA9A1F886A520089E217 /* UploadPersistanceManager */ = {
 			isa = PBXGroup;
 			children = (
+				824DAAB71F8902910089E217 /* PersitanceManager */,
+				824DAAB01F89010E0089E217 /* Midias */,
 				824DAAAF1F886A850089E217 /* User Interface */,
 				824DAAAE1F886A750089E217 /* Controllers */,
 				824DAAAD1F886A640089E217 /* Root */,
 				824DAAA21F886A520089E217 /* Assets.xcassets */,
+				824DAAA71F886A520089E217 /* Info.plist */,
 			);
 			path = UploadPersistanceManager;
 			sourceTree = "<group>";
@@ -65,7 +72,6 @@
 		824DAAAD1F886A640089E217 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				824DAAA71F886A520089E217 /* Info.plist */,
 				824DAA9B1F886A520089E217 /* AppDelegate.swift */,
 			);
 			path = Root;
@@ -86,6 +92,54 @@
 				824DAAA41F886A520089E217 /* LaunchScreen.storyboard */,
 			);
 			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		824DAAB01F89010E0089E217 /* Midias */ = {
+			isa = PBXGroup;
+			children = (
+				824DAAB61F8901F20089E217 /* Photos */,
+				824DAAB51F8901DA0089E217 /* VIdeos */,
+				824DAAB41F8901D10089E217 /* Audios */,
+				824DAAB31F8901C20089E217 /* Misc */,
+			);
+			path = Midias;
+			sourceTree = "<group>";
+		};
+		824DAAB31F8901C20089E217 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		824DAAB41F8901D10089E217 /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		824DAAB51F8901DA0089E217 /* VIdeos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIdeos;
+			sourceTree = "<group>";
+		};
+		824DAAB61F8901F20089E217 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		824DAAB71F8902910089E217 /* PersitanceManager */ = {
+			isa = PBXGroup;
+			children = (
+				824DAABC1F8905020089E217 /* MainSingleton.swift */,
+				824DAABE1F8905260089E217 /* PersistanceManager.swift */,
+			);
+			path = PersitanceManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824DAABD1F8905020089E217 /* MainSingleton.swift in Sources */,
 				824DAA9E1F886A520089E217 /* ViewController.swift in Sources */,
 				824DAA9C1F886A520089E217 /* AppDelegate.swift in Sources */,
+				824DAABF1F8905260089E217 /* PersistanceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
