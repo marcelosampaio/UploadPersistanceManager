@@ -18,6 +18,13 @@ private let miscFolder = "/Misc"
 class PersistanceManager {
     public var commonString = String()
     
+    enum fileType {
+        case Photo
+        case Video
+        case Audio
+        case Misc
+    }
+    
     // MARK: - Instance
     class var standard: PersistanceManager {
         return sharedInstance
@@ -55,8 +62,9 @@ class PersistanceManager {
         return documentsFolder()
     }
     
-    // MARK: - Instance Methods
-    public func addPhoto(_ data: Data) -> Bool {
+    // MARK: - Instance Photos Methods
+    public func addFile(data: Data, type: fileType) -> Bool {
+        
         if data.isEmpty {
             print("👎 photo is empty ❌")
             return false
@@ -64,6 +72,29 @@ class PersistanceManager {
         print("👍 addFile has been called")
         return true
     }
+    
+    public func addFiles(_ photos: [Data]) -> Bool {
+        return true
+    }
+    
+    public func getFile(_ name: String) -> Data {
+        return Data()
+    }
+    
+    public func getFiles() -> [String] {
+        return [String]()
+    }
+    
+    public func deleteFile(_ name: String) -> Bool {
+        return true
+    }
+    
+    public func deleteFiles() -> Bool {
+        return true
+    }
+    
+    
+    
     
     
     // MARK: - Private Helpers

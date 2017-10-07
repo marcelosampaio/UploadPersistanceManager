@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         persistanceManager.createFolderStructure()
         
         let photo = Data()
-        _ = persistanceManager.addPhoto(photo)
+        _ = persistanceManager.addFile(data: photo, type: .Photo)
         
         
     }
