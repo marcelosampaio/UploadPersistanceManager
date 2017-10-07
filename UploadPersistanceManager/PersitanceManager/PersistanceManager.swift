@@ -69,9 +69,46 @@ class PersistanceManager {
             print("👎 photo is empty ❌")
             return false
         }
+
+        // path composer
+        let path = pathComposer(type: type)
+        
+        // save file to the disk
+        do {
+            try data.write(to: URL(fileURLWithPath: path), options: .atomic)
+        } catch {
+            print("👎 error write file to the disk ❌")
+            return false
+        }
+        
+        
+        
         print("👍 addFile has been called")
         return true
     }
+    
+//    private func addFile() {
+//        let fileManager = FileManager.default
+//        do {
+//            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
+//            let fileURL = documentDirectory.appendingPathComponent("fileName")
+//            let image = #imageLiteral(resourceName: "Notifications")
+//            if let imageData = UIImageJPEGRepresentation(image, 0.5) {
+//                try imageData.write(to: fileURL)
+//            }
+//        } catch {
+//            print(error)
+//        }
+//
+//        print("🐛 ens")
+//
+//    }
+
+    
+    
+    
+    
+    
     
     public func addFiles(_ photos: [Data]) -> Bool {
         return true
@@ -115,6 +152,21 @@ class PersistanceManager {
 
     }
     
+    private func pathComposer(type: fileType) -> String {
+        
+        var path = documentsFolder()
+        if type == .Audio {
+            path = path + audiosFolder
+        } else if type == .Misc {
+            path = path + miscFolder
+        } else if type == .Photo {
+            path = path + photosFolder
+        } else {
+            path = path + videosFolder
+        }
+        
+        return path
+    }
     
     
     

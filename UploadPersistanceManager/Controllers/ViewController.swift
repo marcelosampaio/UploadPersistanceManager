@@ -33,24 +33,6 @@ class ViewController: UIViewController {
         
     }
 
-    // MARK: - Manager Helpers
-//    private func addFile() {
-//        let fileManager = FileManager.default
-//        do {
-//            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
-//            let fileURL = documentDirectory.appendingPathComponent("fileName")
-//            let image = #imageLiteral(resourceName: "Notifications")
-//            if let imageData = UIImageJPEGRepresentation(image, 0.5) {
-//                try imageData.write(to: fileURL)
-//            }
-//        } catch {
-//            print(error)
-//        }
-//
-//        print("🐛 ens")
-//
-//    }
-
 
 }
 
