@@ -12,9 +12,20 @@ private let sharedInstance = PersistanceManager()
 
 class PersistanceManager {
     public var commonString = String()
+    private var applicationFolder = ""
     
-    class var instance: PersistanceManager {
+    // MARK: - Instance
+    class var standard: PersistanceManager {
         return sharedInstance
+    }
+    
+    // MARK: - Instance Helpers
+    
+    
+    
+    // MARK: -  Private classes
+    private func setUpEnvironment(){
+        
     }
     
 }
