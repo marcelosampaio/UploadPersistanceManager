@@ -15,8 +15,10 @@ private let videosFolder = "/Videos"
 private let audiosFolder = "/Audios"
 private let miscFolder = "/Misc"
 
+private let sequenceNumberKey = "PersistanceManagerSequenceNUmber"
+
 class PersistanceManager {
-    public var commonString = String()
+
     
     enum fileType {
         case Photo
@@ -63,12 +65,7 @@ class PersistanceManager {
     }
     
     // MARK: - Instance Methods
-    public func addFile(data: Data, type: fileType) -> Bool {
-        
-        if data.isEmpty {
-            print("👎 photo is empty ❌")
-            return false
-        }
+    public func addFile(data: NSData, type: fileType) -> Bool {
 
         // path composer
         let path = pathComposer(type: type)
@@ -77,37 +74,14 @@ class PersistanceManager {
         do {
             try data.write(to: URL(fileURLWithPath: path), options: .atomic)
         } catch {
-            print("👎 error write file to the disk ❌")
+            print("👎 error file: \(path) ❌ error: \(error)")
             return false
         }
         
-        
-        
-        print("👍 addFile has been called")
+        print("👍 addFile has been called and will return true")
         return true
     }
-    
-//    private func addFile() {
-//        let fileManager = FileManager.default
-//        do {
-//            let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:false)
-//            let fileURL = documentDirectory.appendingPathComponent("fileName")
-//            let image = #imageLiteral(resourceName: "Notifications")
-//            if let imageData = UIImageJPEGRepresentation(image, 0.5) {
-//                try imageData.write(to: fileURL)
-//            }
-//        } catch {
-//            print(error)
-//        }
-//
-//        print("🐛 ens")
-//
-//    }
 
-    
-    
-    
-    
     
     
     public func addFiles(_ photos: [Data]) -> Bool {
@@ -168,7 +142,12 @@ class PersistanceManager {
         return path
     }
     
-    
+    // MARK: - Private Sequence Control
+    private func getSequenceNumber() -> Int {
+        let userDefaults = UserDefaults.standard
+        let sequenceNumber = userDefaults.integer(forKey: sequenceNumberKey)
+        return sequenceNumber + 1
+    }
     
     
 }

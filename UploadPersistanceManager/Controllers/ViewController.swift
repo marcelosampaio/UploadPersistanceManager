@@ -24,11 +24,13 @@ class ViewController: UIViewController {
         print("👉 Application Folder: \(persistanceManager.getApplicationFolder())")
         print("👉 Documents Folder: \(persistanceManager.getDocumentsFolder())")
         
-        // create sile system structures
+        // create file system structures
         persistanceManager.createFolderStructure()
         
-        let photo = Data()
-        _ = persistanceManager.addFile(data: photo, type: .Photo)
+        let image = UIImage.init(named: "img1")
+        let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
+        
+        _ = persistanceManager.addFile(data: imageData, type: .Photo)
         
         
     }
