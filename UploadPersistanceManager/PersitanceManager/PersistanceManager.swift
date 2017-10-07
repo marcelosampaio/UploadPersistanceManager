@@ -69,10 +69,13 @@ class PersistanceManager {
 
         // path composer
         let path = pathComposer(type: type)
+        let sequenceNumber = getSequenceNumber()
+        let fileName = "/" + String(sequenceNumber) + ".png"
+        let pathFileName = path + fileName
         
         // save file to the disk
         do {
-            try data.write(to: URL(fileURLWithPath: path), options: .atomic)
+            try data.write(toFile: pathFileName, options: .atomic)
         } catch {
             print("👎 error file: \(path) ❌ error: \(error)")
             return false
@@ -128,7 +131,7 @@ class PersistanceManager {
     
     private func pathComposer(type: fileType) -> String {
         
-        var path = documentsFolder()
+        var path = documentsFolder() + midiaFolder
         if type == .Audio {
             path = path + audiosFolder
         } else if type == .Misc {
