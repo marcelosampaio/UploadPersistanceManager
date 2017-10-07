@@ -23,6 +23,11 @@ class ViewController: UIViewController {
 
         print("👉 Application Folder: \(persistanceManager.getApplicationFolder())")
         print("👉 Documents Folder: \(persistanceManager.getDocumentsFolder())")
+        print("👉 Midias Folder: \(persistanceManager.getMidiasFolder())")
+        print("👉 Audios Folder: \(persistanceManager.getAudiosFolder())")
+        print("👉 Misc Folder: \(persistanceManager.getMiscFolder())")
+        print("👉 Photos Folder: \(persistanceManager.getPhotosFolder())")
+        print("👉 Videos Folder: \(persistanceManager.getVideosFolder())")
         
         // create file system structures
         persistanceManager.createFolderStructure()

@@ -64,13 +64,33 @@ class PersistanceManager {
         return documentsFolder()
     }
     
+    public func getMidiasFolder() -> String {
+        return documentsFolder() + midiaFolder
+    }
+
+    public func getAudiosFolder() -> String {
+        return documentsFolder() + midiaFolder + audiosFolder
+    }
+    
+    public func getMiscFolder() -> String {
+        return documentsFolder() + midiaFolder + miscFolder
+    }
+    
+    public func getPhotosFolder() -> String {
+        return documentsFolder() + midiaFolder + photosFolder
+    }
+    
+    public func getVideosFolder() -> String {
+        return documentsFolder() + midiaFolder + videosFolder
+    }
+    
     // MARK: - Instance Methods
     public func addFile(data: NSData, type: fileType) -> Bool {
 
         // path composer
         let path = pathComposer(type: type)
         let sequenceNumber = getSequenceNumber()
-        let fileName = "/" + String(sequenceNumber) + ".png"
+        let fileName = "/" + String(sequenceNumber) + fileExtension(type: type)
         let pathFileName = path + fileName
         
         // save file to the disk
@@ -145,6 +165,22 @@ class PersistanceManager {
         
         return path
     }
+    
+    private func fileExtension(type: fileType) -> String {
+        var ext = ""
+        if type == .Audio {
+            ext = ""
+        } else if type == .Misc {
+            ext = ""
+        } else if type == .Photo {
+            ext = ".png"
+        } else {
+            ext = ""
+        }
+        return ext
+    }
+    
+    
     
     // MARK: - Private Sequence Control
     private func getSequenceNumber() -> Int {
