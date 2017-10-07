@@ -80,7 +80,8 @@ class PersistanceManager {
             print("👎 error file: \(path) ❌ error: \(error)")
             return false
         }
-        
+        // update sequence number
+        setSequenceNumber(sequenceNumber)
         print("👍 addFile has been called and will return true")
         return true
     }
@@ -150,6 +151,12 @@ class PersistanceManager {
         let userDefaults = UserDefaults.standard
         let sequenceNumber = userDefaults.integer(forKey: sequenceNumberKey)
         return sequenceNumber + 1
+    }
+    
+    private func setSequenceNumber(_ sequenceNumber: Int) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(sequenceNumber, forKey: sequenceNumberKey)
+        userDefaults.synchronize()
     }
     
     
