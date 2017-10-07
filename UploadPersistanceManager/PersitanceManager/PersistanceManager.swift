@@ -20,13 +20,11 @@ class PersistanceManager {
     }
     
     // MARK: - Instance Helpers
-    
-    
-    
-    // MARK: -  Private classes
-    private func setUpEnvironment(){
-        
+    public func getApplicationFolder() -> String {
+        return "[ApplicationFolder]"
     }
+    
+    
     
 }
 

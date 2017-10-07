@@ -21,8 +21,9 @@ class ViewController: UIViewController {
         
         
         PersistanceManager.standard.commonString = ""
+        let persistanceManager = PersistanceManager.standard
         
-        
+        print("👉 Application Folder: \(persistanceManager.getApplicationFolder())")
         
         
         
