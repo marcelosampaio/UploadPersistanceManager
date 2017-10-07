@@ -54,14 +54,38 @@
 		824DAA9A1F886A520089E217 /* UploadPersistanceManager */ = {
 			isa = PBXGroup;
 			children = (
-				824DAA9B1F886A520089E217 /* AppDelegate.swift */,
-				824DAA9D1F886A520089E217 /* ViewController.swift */,
-				824DAA9F1F886A520089E217 /* Main.storyboard */,
+				824DAAAF1F886A850089E217 /* User Interface */,
+				824DAAAE1F886A750089E217 /* Controllers */,
+				824DAAAD1F886A640089E217 /* Root */,
 				824DAAA21F886A520089E217 /* Assets.xcassets */,
-				824DAAA41F886A520089E217 /* LaunchScreen.storyboard */,
-				824DAAA71F886A520089E217 /* Info.plist */,
 			);
 			path = UploadPersistanceManager;
+			sourceTree = "<group>";
+		};
+		824DAAAD1F886A640089E217 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				824DAAA71F886A520089E217 /* Info.plist */,
+				824DAA9B1F886A520089E217 /* AppDelegate.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		824DAAAE1F886A750089E217 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				824DAA9D1F886A520089E217 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		824DAAAF1F886A850089E217 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				824DAA9F1F886A520089E217 /* Main.storyboard */,
+				824DAAA41F886A520089E217 /* LaunchScreen.storyboard */,
+			);
+			path = "User Interface";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U294U2N56;
 				INFOPLIST_FILE = UploadPersistanceManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAS.UploadPersistanceManager;
@@ -289,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U294U2N56;
 				INFOPLIST_FILE = UploadPersistanceManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAS.UploadPersistanceManager;
