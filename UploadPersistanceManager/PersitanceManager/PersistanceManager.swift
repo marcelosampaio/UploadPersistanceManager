@@ -142,7 +142,29 @@ class PersistanceManager {
         
     }
     
-    public func deleteFiles() -> Bool {
+    public func deleteFiles(type: fileType) -> Bool {
+        
+        // path composer
+        let path = pathComposer(type: type)
+
+        ///////
+
+        let fm = FileManager.default
+        
+        do {
+            let items = try fm.contentsOfDirectory(atPath: path)
+            
+            for item in items {
+                print(" 🥑 Found \(item)")
+            }
+        } catch {
+            // failed to read directory – bad permissions, perhaps?
+        }
+        
+        
+        ///////
+
+        
         return true
     }
     

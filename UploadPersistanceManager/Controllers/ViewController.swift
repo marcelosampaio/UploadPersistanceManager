@@ -35,8 +35,8 @@ class ViewController: UIViewController {
         // ===========
         // ADD FILE
         // ===========
-//        let image = UIImage.init(named: "img1")
-//        let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
+        let image = UIImage.init(named: "img1")
+        let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
     
         // ----------------------------------------------------------------
         // Add a single file
@@ -64,7 +64,14 @@ class ViewController: UIViewController {
         // ===========
         // DELETE FILE
         // ===========
-        _ = persistanceManager.deleteFile("1", type: .Photo)
+//        _ = persistanceManager.deleteFile("1", type: .Photo)
+        
+        
+        
+        // ============
+        // DELETE FILES
+        // ============
+        _ = persistanceManager.deleteFiles(type: .Photo)
         
         
         
