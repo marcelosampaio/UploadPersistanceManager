@@ -152,19 +152,22 @@ class PersistanceManager {
         let fm = FileManager.default
         
         do {
-            let items = try fm.contentsOfDirectory(atPath: path)
+            let files = try fm.contentsOfDirectory(atPath: path)
             
-            for item in items {
-                print(" 🥑 Found \(item)")
+            for file in files {
+                print(" 🥑 Found \(file)")
+                _ = deleteFile(file, type: .Photo)
             }
         } catch {
             // failed to read directory – bad permissions, perhaps?
+            print("👎 error deletinf files at: \(path) ❌ error: \(error)")
+            return false
         }
         
         
         ///////
 
-        
+        print("👍 delete files OK for type: \(type)")
         return true
     }
     
