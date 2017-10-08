@@ -102,7 +102,6 @@ class PersistanceManager {
         }
         // update sequence number
         setSequenceNumber(sequenceNumber)
-        print("👍 addFile has been called and will return true")
         return true
     }
     
@@ -126,15 +125,9 @@ class PersistanceManager {
             return attributes as NSDictionary
         }
         catch let error as NSError {
-            print("Ooops! Something went wrong: \(error)")
+            print("👎 error getFileAttributes: \(error) ❌")
         }
         return NSDictionary()
-    }
-    
-    public func getFiles(type: fileType) -> [NSData] {
-        
-        
-        return [NSData]()
     }
     
     public func getFilesNames(type: fileType) -> [String] {
