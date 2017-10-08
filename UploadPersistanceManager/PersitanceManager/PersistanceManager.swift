@@ -105,10 +105,11 @@ class PersistanceManager {
         print("👍 addFile has been called and will return true")
         return true
     }
-
     
-    
-    public func addFiles(_ photos: [Data]) -> Bool {
+    public func addFiles(_ files: [NSData], type: fileType) -> Bool {
+        for file in files {
+            _ = addFile(data: file, type: type)
+        }
         return true
     }
     
@@ -173,8 +174,10 @@ class PersistanceManager {
         } else if type == .Misc {
             ext = ""
         } else if type == .Photo {
-            ext = ".png"
-        } else {
+            ext = ""
+        }else if type == .Video {
+            ext = ""
+        }else {
             ext = ""
         }
         return ext

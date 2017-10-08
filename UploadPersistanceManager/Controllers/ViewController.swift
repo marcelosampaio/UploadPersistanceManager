@@ -35,7 +35,17 @@ class ViewController: UIViewController {
         let image = UIImage.init(named: "img1")
         let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
         
-        _ = persistanceManager.addFile(data: imageData, type: .Photo)
+//        _ = persistanceManager.addFile(data: imageData, type: .Photo)
+        
+        var imageArray = [NSData]()
+        imageArray.append(imageData)
+        imageArray.append(imageData)
+        imageArray.append(imageData)
+        
+        
+        
+//        _ = persistanceManager.addFile(data: imageData, type: .Photo)
+        _ = persistanceManager.addFiles(imageArray, type: .Photo)
         
         
     }
