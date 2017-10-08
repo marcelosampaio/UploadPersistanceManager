@@ -106,8 +106,8 @@ class PersistanceManager {
         return true
     }
     
-    public func addFiles(_ files: [NSData], type: fileType) -> Bool {
-        for file in files {
+    public func addFiles(dataArray: [NSData], type: fileType) -> Bool {
+        for file in dataArray {
             _ = addFile(data: file, type: type)
         }
         return true

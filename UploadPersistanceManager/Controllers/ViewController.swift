@@ -37,15 +37,14 @@ class ViewController: UIViewController {
         
 //        _ = persistanceManager.addFile(data: imageData, type: .Photo)
         
-        var imageArray = [NSData]()
-        imageArray.append(imageData)
-        imageArray.append(imageData)
-        imageArray.append(imageData)
+        var dataArray = [NSData]()
+        dataArray.append(imageData)
+        dataArray.append(imageData)
+        dataArray.append(imageData)
         
         
+        _ = persistanceManager.addFiles(dataArray: dataArray, type: .Photo)
         
-//        _ = persistanceManager.addFile(data: imageData, type: .Photo)
-        _ = persistanceManager.addFiles(imageArray, type: .Photo)
         
         
     }
