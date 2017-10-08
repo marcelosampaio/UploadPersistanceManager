@@ -55,7 +55,10 @@ class ViewController: UIViewController {
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
-//
+//        dataArray.append(imageData)
+//        dataArray.append(imageData)
+//        dataArray.append(imageData)
+//        dataArray.append(imageData)
 //
 //        _ = persistanceManager.addFiles(dataArray: dataArray, type: .Photo)
         // ----------------------------------------------------------------
@@ -71,9 +74,21 @@ class ViewController: UIViewController {
         // ============
         // DELETE FILES
         // ============
-        _ = persistanceManager.deleteFiles(type: .Photo)
+//        _ = persistanceManager.deleteFiles(type: .Photo)
+
+        
+        // ================
+        // GET FILES NAMES
+        // ================
+//        let files = persistanceManager.getFilesNames(type: .Photo)
+//        print("👉 files.count: \(files.count)")
         
         
+        // ================
+        // GET FILE
+        // ================
+        let file = persistanceManager.getFileAttributes("10", type: .Photo)
+        print("👉 files: \(file)")
         
         
         

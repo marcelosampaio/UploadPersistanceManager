@@ -1,6 +1,6 @@
 //
 //  PersistanceManager.swift
-//  UploadPersistanceManager
+//  PersistanceManager
 //
 //  Created by Marcelo on 10/7/17.
 //  Copyright © 2017 MAS. All rights reserved.
@@ -113,11 +113,44 @@ class PersistanceManager {
         return true
     }
     
-    public func getFile(_ name: String) -> Data {
-        return Data()
+    public func getFileAttributes(_ name: String, type: fileType) -> NSDictionary {
+        
+        // path composer
+        let path = pathComposer(type: type)
+        let pathFileName = path + "/" + name
+        
+        // File System
+        let fileManager = FileManager.default
+        do {
+            let attributes = try fileManager.attributesOfItem(atPath: pathFileName)
+            return attributes as NSDictionary
+        }
+        catch let error as NSError {
+            print("Ooops! Something went wrong: \(error)")
+        }
+        return NSDictionary()
     }
     
-    public func getFiles() -> [String] {
+    public func getFiles(type: fileType) -> [NSData] {
+        
+        
+        return [NSData]()
+    }
+    
+    public func getFilesNames(type: fileType) -> [String] {
+        
+        // path composer
+        let path = pathComposer(type: type)
+        
+        let fileManager = FileManager.default
+        
+        do {
+            let files = try fileManager.contentsOfDirectory(atPath: path)
+            return files
+        } catch {
+            print("👎 error deletinf files at: \(path) ❌ error: \(error)")
+    
+        }
         return [String]()
     }
     
