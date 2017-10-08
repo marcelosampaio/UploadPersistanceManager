@@ -127,10 +127,11 @@ class PersistanceManager {
         
         // path composer
         let path = pathComposer(type: type)
+        let pathFileName = path + "/" + name
         
         // save file to the disk
         do {
-            try fileManager.removeItem(atPath: path)
+            try fileManager.removeItem(atPath: pathFileName)
         } catch {
             print("👎 error delete file: \(path) ❌ error: \(error)")
             return false

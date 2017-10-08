@@ -32,18 +32,41 @@ class ViewController: UIViewController {
         // create file system structures
         persistanceManager.createFolderStructure()
         
-        let image = UIImage.init(named: "img1")
-        let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
-        
+        // ===========
+        // ADD FILE
+        // ===========
+//        let image = UIImage.init(named: "img1")
+//        let imageData: NSData = UIImagePNGRepresentation(image!)! as NSData
+    
+        // ----------------------------------------------------------------
+        // Add a single file
 //        _ = persistanceManager.addFile(data: imageData, type: .Photo)
-        
-        var dataArray = [NSData]()
-        dataArray.append(imageData)
-        dataArray.append(imageData)
-        dataArray.append(imageData)
+        // ----------------------------------------------------------------
         
         
-        _ = persistanceManager.addFiles(dataArray: dataArray, type: .Photo)
+        
+        
+        // ===========
+        // ADD FILES
+        // ===========
+        // ----------------------------------------------------------------
+        // Add multiple files
+//        var dataArray = [NSData]()
+//        dataArray.append(imageData)
+//        dataArray.append(imageData)
+//        dataArray.append(imageData)
+//
+//
+//        _ = persistanceManager.addFiles(dataArray: dataArray, type: .Photo)
+        // ----------------------------------------------------------------
+        
+        
+        // ===========
+        // DELETE FILE
+        // ===========
+        _ = persistanceManager.deleteFile("1", type: .Photo)
+        
+        
         
         
         
