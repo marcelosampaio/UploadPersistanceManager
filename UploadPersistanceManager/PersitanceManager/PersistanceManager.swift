@@ -147,33 +147,25 @@ class PersistanceManager {
         // path composer
         let path = pathComposer(type: type)
 
-        ///////
-
-        let fm = FileManager.default
+        let fileManager = FileManager.default
         
         do {
-            let files = try fm.contentsOfDirectory(atPath: path)
+            let files = try fileManager.contentsOfDirectory(atPath: path)
             
             for file in files {
                 print(" 🥑 Found \(file)")
                 _ = deleteFile(file, type: .Photo)
             }
         } catch {
-            // failed to read directory – bad permissions, perhaps?
             print("👎 error deletinf files at: \(path) ❌ error: \(error)")
             return false
         }
         
-        
-        ///////
-
         print("👍 delete files OK for type: \(type)")
         return true
     }
     
-    
-    
-    
+
     
     // MARK: - Private Helpers
     private func applicationFolder() -> String {
