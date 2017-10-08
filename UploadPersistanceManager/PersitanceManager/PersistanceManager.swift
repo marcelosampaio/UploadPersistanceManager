@@ -97,7 +97,7 @@ class PersistanceManager {
         do {
             try data.write(toFile: pathFileName, options: .atomic)
         } catch {
-            print("👎 error file: \(path) ❌ error: \(error)")
+            print("👎 error write file: \(path) ❌ error: \(error)")
             return false
         }
         // update sequence number
@@ -121,8 +121,24 @@ class PersistanceManager {
         return [String]()
     }
     
-    public func deleteFile(_ name: String) -> Bool {
+    public func deleteFile(_ name: String, type: fileType) -> Bool {
+        
+        let fileManager = FileManager.default
+        
+        // path composer
+        let path = pathComposer(type: type)
+        
+        // save file to the disk
+        do {
+            try fileManager.removeItem(atPath: path)
+        } catch {
+            print("👎 error delete file: \(path) ❌ error: \(error)")
+            return false
+        }
+
+        print("👍 addFile has been called and will return true")
         return true
+        
     }
     
     public func deleteFiles() -> Bool {
