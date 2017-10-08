@@ -80,8 +80,8 @@ class ViewController: UIViewController {
         // ================
         // GET FILES NAMES
         // ================
-        let files = persistanceManager.getFilesNames(.Photo)
-        print("👉 files.count: \(files.count)")
+//        let files = persistanceManager.getFilesNames(.Photo)
+//        print("👉 files.count: \(files.count)")
         
         
         // ================
@@ -89,6 +89,18 @@ class ViewController: UIViewController {
         // ================
 //        let file = persistanceManager.getFileAttributes("10", type: .Photo)
 //        print("👉 files: \(file)")
+        
+
+        // ================
+        // FILE EXISTS
+        // ================
+        let fileExists = persistanceManager.fileExists(name: "13", type: .Photo)
+        if fileExists {
+            print("👍 file exists")
+        }else{
+            print("👎 file does not eist")
+        }
+        
         
         
         

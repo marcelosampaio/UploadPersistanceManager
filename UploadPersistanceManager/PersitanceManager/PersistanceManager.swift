@@ -85,6 +85,23 @@ class PersistanceManager {
     }
     
     // MARK: - Instance Methods
+    
+    public func fileExists(name: String, type: fileType) -> Bool {
+        // path composer
+        let path = pathComposer(type: type)
+        let pathFileName = path + "/" + name
+        
+        // file system
+        let fileManager = FileManager.default
+        
+        // Check if file exists, given its path
+        
+        if fileManager.fileExists(atPath: pathFileName) {
+            return true
+        }
+        return false
+    }
+    
     public func addFile(data: NSData, type: fileType) -> Bool {
 
         // path composer
@@ -111,6 +128,15 @@ class PersistanceManager {
         }
         return true
     }
+    
+    public func getFile(name: String,type: fileType) -> NSData{
+        // path composer
+        let path = pathComposer(type: type)
+        let pathFileName = path + "/" + name
+        
+        return NSData()
+    }
+    
     
     public func getFileAttributes(_ name: String, type: fileType) -> NSDictionary {
         
