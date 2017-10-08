@@ -130,7 +130,7 @@ class PersistanceManager {
         return NSDictionary()
     }
     
-    public func getFilesNames(type: fileType) -> [String] {
+    public func getFilesNames(_ type: fileType) -> [String] {
         
         // path composer
         let path = pathComposer(type: type)

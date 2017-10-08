@@ -80,15 +80,15 @@ class ViewController: UIViewController {
         // ================
         // GET FILES NAMES
         // ================
-//        let files = persistanceManager.getFilesNames(type: .Photo)
-//        print("👉 files.count: \(files.count)")
+        let files = persistanceManager.getFilesNames(.Photo)
+        print("👉 files.count: \(files.count)")
         
         
         // ================
         // GET FILE
         // ================
-        let file = persistanceManager.getFileAttributes("10", type: .Photo)
-        print("👉 files: \(file)")
+//        let file = persistanceManager.getFileAttributes("10", type: .Photo)
+//        print("👉 files: \(file)")
         
         
         
