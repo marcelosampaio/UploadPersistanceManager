@@ -102,8 +102,8 @@ class PersistanceManager {
         return false
     }
     
-    public func addFile(data: NSData, type: fileType) -> Bool {
-
+    public func addFile(data: NSData, type: fileType) -> (absolutePath: String, error: NSError) {
+        
         // path composer
         let path = pathComposer(type: type)
         let sequenceNumber = getSequenceNumber()
@@ -113,20 +113,32 @@ class PersistanceManager {
         // save file to the disk
         do {
             try data.write(toFile: pathFileName, options: .atomic)
+            
+            // update sequence number
+            setSequenceNumber(sequenceNumber)
+            return(pathFileName,NSError())
+            
         } catch {
             print("👎 error write file: \(path) ❌ error: \(error)")
-            return false
+            let errorDomain = NSLocalizedString("app-domain-name", comment:"")
+            let errorCode = 8000
+            let errorUserInfo = [NSLocalizedDescriptionKey : NSLocalizedString("error-addFile", comment:"")]
+            let errorObject = NSError.init(domain: errorDomain, code: errorCode, userInfo: errorUserInfo)
+            
+            return (String(),errorObject)
+            
         }
-        // update sequence number
-        setSequenceNumber(sequenceNumber)
-        return true
     }
     
-    public func addFiles(dataArray: [NSData], type: fileType) -> Bool {
-        for file in dataArray {
-            _ = addFile(data: file, type: type)
+    public func addFiles(files: [NSData], type: fileType) -> [(absolutePath: String, error: NSError)] {
+        var resultTuples: [(absolutePath: String, error: NSError)]  = []
+        
+        for file in files {
+            let result = addFile(data: file, type: type)
+            resultTuples.append(result)
         }
-        return true
+        
+        return resultTuples
     }
     
     public func getFile(name: String,type: fileType) -> NSData{

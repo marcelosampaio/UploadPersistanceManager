@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
 
         let persistanceManager = PersistanceManager.standard
 
@@ -40,7 +40,10 @@ class ViewController: UIViewController {
     
         // ----------------------------------------------------------------
         // Add a single file
-//        _ = persistanceManager.addFile(data: imageData, type: .Photo)
+//        var resultTuple : (absolutePath: String, error: NSError) = (String(), NSError())
+//        resultTuple = persistanceManager.addFile(data: imageData, type: .Photo)
+//        print("🐁 resultTuple absolutePath: \(resultTuple.absolutePath)   error:\(resultTuple.error.domain)")
+        
         // ----------------------------------------------------------------
         
         
@@ -51,16 +54,20 @@ class ViewController: UIViewController {
         // ===========
         // ----------------------------------------------------------------
         // Add multiple files
-//        var dataArray = [NSData]()
+        var dataArray = [NSData]()
+        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
 //        dataArray.append(imageData)
-//        dataArray.append(imageData)
-//
-//        _ = persistanceManager.addFiles(dataArray: dataArray, type: .Photo)
+
+        let results = persistanceManager.addFiles(files: dataArray, type: .Photo)
+        
+        
+        print("🌿 results")
+        
         // ----------------------------------------------------------------
         
         
@@ -94,12 +101,12 @@ class ViewController: UIViewController {
         // ================
         // FILE EXISTS
         // ================
-        let fileExists = persistanceManager.fileExists(name: "13", type: .Photo)
-        if fileExists {
-            print("👍 file exists")
-        }else{
-            print("👎 file does not eist")
-        }
+//        let fileExists = persistanceManager.fileExists(name: "13", type: .Photo)
+//        if fileExists {
+//            print("👍 file exists")
+//        }else{
+//            print("👎 file does not eist")
+//        }
         
         
         
